@@ -1,18 +1,22 @@
 {% extends 'catalog/base.html' %}
 {% load static %}
+{% load render_table from django_tables2 %}
 
 {% block header %}
-    <ul class="nav nav-tabs">
-            <li class="nav-item">
-                <a class="nav-link" href="index.html">Warehouse</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">Catalog</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Personal storage</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link disabled" href="#">login</a>
-            </li>
+    <nav class="nav nav-pills flex-column flex-sm-row">
+        <a class="flex-sm-fill text-sm-center nav-link" href="{% url 'index' %}">Warehouse</a>
+        <a class="flex-sm-fill text-sm-center nav-link active" aria-current="page" href="#">Catalog</a>
+        <a class="flex-sm-fill text-sm-center nav-link" href="#">login</a>
+        <a class="flex-sm-fill text-sm-center nav-link disabled">Disabled</a>
+    </nav>
+{% endblock %}
+{% block content %}
+    <h2>Select a category</h2>
+    <select class="form-select" aria-label="Default select example">
+      <option selected>Open this select menu</option>
+      <option value="1">category 1</option>
+      <option value="2">category 2</option>
+      <option value="3">category 3</option>
+    </select>
+    {% render_table table %}
 {% endblock %}
