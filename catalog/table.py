@@ -4,4 +4,8 @@ from .models import Catalog
 class catalogtable(tables.Table):
     class Meta:
         model = Catalog
-        attrs = {'class': 'paleblue'}
+        template_name = "django_tables2/bootstrap.html"
+        #attrs = {'class': 'paleblue'}
+
+
+
